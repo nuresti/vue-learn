@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="" id="app">
+      <div class="field">
+        <label for="" class="label">KM</label>
+        <input type="number" name="" value="" class="input" v-model="km" placeholder="Type a length in KM !">
+      </div>
+      <div class="field">
+        <label for="" class="label">M</label>
+        <input type="number" name="" value="" class="input" v-model="m" placeholder="Type a length in M !">
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"> </script>
+    <script type="text/javascript">
+        new Vue({
+          el:'#app',
+          data:{
+              km: 0,
+              // m: 0
+          },
+          // watch:{
+          //   km(){
+          //     //whenever km changes, this funciton runs
+          //     this.m = this.km ? this.km * 1000 : 0 ;
+          //   },
+          //   m(){
+          //     //whenever m changes, this function runs
+          //     this.km = this.m ? this.m / 1000 : 0 ;
+          //   }
+          // }
+          computed:{
+            m:{
+              get(){
+                return this.km * 1000 ;
+              },
+              set(newValue){
+                this.km = newValue/1000 ;
+              }
+            }
+          }
+        });
+    </script>
+  </body>
+</html>

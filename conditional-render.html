@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="" id="app">
+        <h2>{{greeting}}</h2>
+        <p v-if="city === 'Tangerang'" >by {{user}} who lives in {{city}}</p>
+        <p v-if="city === 'Lagos'" >by {{user}} who wishes to visit {{city}}</p>
+        <img v-bind:src="cityImage" alt="">
+        <button @click="changeCity" type="button" name="button">
+          Change City
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+      /*IF CARA MANUAL, menambahkannya di dalam sebuah methods*/
+        new Vue({
+          el:'#app',
+          data:{
+            greeting:'Hello World!',
+            user: 'Resti',
+            city: 'Tangerang',
+            cityImage:'https://bit.ly/2SKJPqJ'
+          },
+          methods:{
+            changeCity(){
+              if( this.city === 'Tangerang'){
+                this.city = 'Lagos';
+                this.cityImage = 'https://bit.ly/2Rd4gQ3';
+              }else{
+                this.city = 'Tangerang';
+                this.cityImage= 'https://bit.ly/2SKJPqJ';
+              }
+            }
+          }
+        });
+
+    </script>
+  </body>
+</html>

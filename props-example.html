@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://unpkg.com/bulma/css/bulma.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+  </head>
+  <body>
+    <div class="" id="app">
+      <tweet-component v-for="tweet in tweets" :key="tweet.id" :tweet="tweet"></tweet-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"> </script>
+    <script type="text/javascript">
+        const tweets = [
+          {
+            id:1,
+            name:'James',
+            handle:'@jokerjames',
+            img:'image/james.png',
+            tweet:"If you don't succeed, dust yourself off...",
+            likes:10,
+          },
+          {
+            id:2,
+            name:'Xin',
+            handle:'@xeroxin',
+            img:'image/james.png',
+            tweet:"Beauty in the struggle",
+            likes:12,
+          },
+          {
+            id:3,
+            name:'Fatima',
+            handle:'@fantasticfatime',
+            img:'image/james.png',
+            tweet:"Better late than never but never late...",
+            likes:18,
+          },
+        ]
+        Vue.component('tweet-component',{
+          template:`
+          <div class="tweet">
+            <div class="box">
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64">
+                    <img :src="tweet.img" alt="">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                      <p>
+                        <strong>{{tweet.naem}}</strong>
+                        <small>{{tweet.handle}}</small>
+                        <br>
+                        {{tweet.tweet}}
+                      </p>
+                  </div>
+                  <div class="level-left">
+                    <div class="level-item">
+                      <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                      <span class="likes">{{tweet.likes}}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="control has-icons-left">
+              <input type="text" class="input is-small" name="" value="" placeholder="Tweet your reply...">
+              <span class="icon is-small is-left"> <i class="fa fa-envelope"></i> </span>
+            </div>
+          </div>
+          `,
+          props:['tweet']
+        })
+
+        new Vue({
+          el:'#app',
+          data:{
+            tweets
+            }
+        });
+    </script>
+  </body>
+</html>
