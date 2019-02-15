@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://unpkg.com/bulma/css/bulma.css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+  </head>
+  <body>
+    <div class="" id="app">
+      <single-line-template :message="message"></single-line-template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        let singeLineTemplate ={
+          template:`
+          <div class="card">
+            <header class="card-header card-header-title">
+              {{message}}
+            </header>
+          </div>
+          `,
+          props:['message']
+        }
+
+        new Vue({
+          el:'#app',
+          data:{
+            message:'Greetings',
+          },
+          components: {
+            'single-line-template':singeLineTemplate
+          }
+        });
+    </script>
+  </body>
+</html>
